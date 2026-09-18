@@ -1,0 +1,18 @@
+﻿# Downloaded starter archive
+/backend.zip
+
+# Frontend dependencies and output
+node_modules/
+/frontend/dist/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Logs and local editor settings
+*.log
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
