@@ -1,0 +1,149 @@
+@font-face {
+  font-family: "Mona12";
+  src: url("/fonts/Mona12.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mona12";
+  src: url("/fonts/Mona12-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bottom-bar-height: 52px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  scroll-padding-bottom: calc(
+    var(--bottom-bar-height) + env(safe-area-inset-bottom) + 16px
+  );
+}
+
+body {
+  display: block;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  padding-bottom: calc(
+    var(--bottom-bar-height) + env(safe-area-inset-bottom)
+  );
+
+  font-family: "Mona12", sans-serif;
+  font-weight: 400;
+  color: #111;
+
+  background: #fff;
+  isolation: isolate;
+}
+
+/* 모든 페이지에서 동일한 위치의 배경 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background: url("/images/home-bg.png") center / cover no-repeat;
+}
+
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+strong,
+b {
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+}
+
+.bottom-home {
+  margin-left: auto;
+  border-left: 1px solid #aaa;
+  font-weight: 700;
+}
+
+/* 메인: 기존 지구와 회전 유령 유지 */
+.home-content {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  min-height: calc(
+    100svh - var(--bottom-bar-height) - env(safe-area-inset-bottom)
+  );
+}
+
+/* 내부 페이지 */
+.page-content {
+  position: relative;
+  isolation: isolate;
+  padding: 24px;
+  min-height: calc(
+    100dvh - var(--bottom-bar-height) - env(safe-area-inset-bottom)
+  );
+}
+
+/* 내부 페이지에만 표시하는 흐린 지구 */
+.page-earth-background {
+  position: fixed;
+  inset: 0 0 calc(
+    var(--bottom-bar-height) + env(safe-area-inset-bottom)
+  );
+  z-index: -1;
+
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.page-earth-background img {
+  display: block;
+  width: min(100%, 1200px, calc(123.75svh - 100px));
+  height: auto;
+  max-width: none;
+  aspect-ratio: 2048 / 1655;
+  object-fit: contain;
+  transform: scale(1.6);
+
+  opacity: 0.4;
+}
+
+/* 선택된 메뉴의 얇은 검정 띠 */
+.bottom-navigation a.active,
+.egoff-tabs a.active,
+.archive-menu a.active {
+  color: #fff;
+  background-color: transparent;
+  background-image: linear-gradient(#111, #111);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: calc(100% - 16px) 8px;
+}
+
+@media (max-width: 600px) {
+  body::before {
+    background-position: 25% center;
+  }
+}

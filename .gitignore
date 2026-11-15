@@ -1,18 +1,65 @@
-﻿# Downloaded starter archive
-/backend.zip
-
-# Frontend dependencies and output
-node_modules/
-/frontend/dist/
-
-# Local environment files
+﻿# 환경변수
 .env
 .env.*
 !.env.example
 
-# Logs and local editor settings
-*.log
-.vscode/
+# 로컬 전용 설정
+application-local.properties
+application-local.yml
+application-local.yaml
+application-secret.properties
+application-secret.yml
+application-secret.yaml
+
+# 인증서 / 개인 키
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# 프론트 의존성 / 빌드
+node_modules/
+dist/
+.vite/
+coverage/
+
+# Gradle / Java 빌드
+.gradle/
+build/
+out/
+bin/
+!gradle/wrapper/gradle-wrapper.jar
+!**/gradle/wrapper/gradle-wrapper.jar
+
+# IDE
 .idea/
-Thumbs.db
+.vscode/
+*.iml
+*.iws
+*.ipr
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+nbproject/private/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# 로그 / 백업
+*.log
+*.dump
+*.bak
+*.sql.gz
+
+# OS
 .DS_Store
+Thumbs.db
+
+# 생성된 도움말
+HELP.md
